@@ -15,7 +15,7 @@
   },
   "cwd": "/home/mattsun/workspace/github.io",
   "project_name": "github.io",
-  "prompt_seq": 20,
+  "prompt_seq": 27,
   "git": {
     "branch": "HEAD",
     "uncommitted_changes": 0,
