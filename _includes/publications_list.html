@@ -23,11 +23,11 @@
     <div class="pub-authors" style="color: #555;">
       {% assign authors = pub.authors | split: ", " %}
       {% for author in authors %}
-        {% if author == site.author_name %}
-          <strong>{{ author }}</strong>
-        {% else %}
-          {{ author }}
-        {% endif %}
+        {% assign is_me = false %}
+        {% for name in site.author_names %}
+          {% if author == name %}{% assign is_me = true %}{% endif %}
+        {% endfor %}
+        {% if is_me %}<strong>{{ author }}</strong>{% else %}{{ author }}{% endif %}
         {% unless forloop.last %},&nbsp;{% endunless %}
       {% endfor %}
     </div>

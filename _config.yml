@@ -7,7 +7,9 @@ first_name: Your
 middle_name:
 last_name: Name
 email: your@email.com # placeholder - replace with your actual email
-author_name: "Your Name" # used for author bolding in publications
+author_names:            # used for author bolding in publications (add as many as needed)
+  - "Your Name"          # English name
+  - "あなたの名前"         # Japanese name
 contact_note: >
   You can even add a little note about which of these is the best way to reach you.
 description: > # the ">" symbol means to ignore newlines until "footer_text:"
