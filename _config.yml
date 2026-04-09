@@ -2,14 +2,14 @@
 # Site settings
 # -----------------------------------------------------------------------------
 
-title: "Your Name" # the website title (if blank, full name will be used instead)
-first_name: Your
+title: "Kohei Matsumoto" # the website title (if blank, full name will be used instead)
+first_name: Kohei
 middle_name:
-last_name: Name
-email: your@email.com # placeholder - replace with your actual email
+last_name: Matsumoto
+email: mattsun@ucl.nuee.nagoya-u.ac.jp # placeholder - replace with your actual email
 author_names:            # used for author bolding in publications (add as many as needed)
-  - "Your Name"          # English name
-  - "あなたの名前"         # Japanese name
+  - "Kohei Matusmoto"          # English name
+  - "松本 亘平"         # Japanese name
 contact_note: >
   You can even add a little note about which of these is the best way to reach you.
 description: > # the ">" symbol means to ignore newlines until "footer_text:"

@@ -8,12 +8,7 @@
 #   url:     Link to paper (optional - arXiv, DOI, project page, etc.)
 
 - title: "Sample Paper Title on Some Research Topic"
-  authors: "Your Name, Co-Author One, Co-Author Two"
+  authors: "Kohei Matsumoto, Co-Author One, Co-Author Two"
   venue: "Conference on Example Research (EXAMPLE 2024)"
   year: 2024
   url: "https://arxiv.org/abs/0000.00000"
-
-- title: "Another Sample Paper Without a URL"
-  authors: "Co-Author One, Your Name, Co-Author Three"
-  venue: "Journal of Sample Research, Vol. 1, 2023"
-  year: 2023
