@@ -289,6 +289,7 @@ git commit -m "feat: add Japanese about page and language nav links"
 - [ ] **Step 2: `_includes/publications_list.html` を作成**
 
 ```html
+{% raw %}
 {% assign pubs_sorted = include.publications | sort: "year" | reverse %}
 {% assign current_year = "" %}
 
@@ -324,6 +325,7 @@ git commit -m "feat: add Japanese about page and language nav links"
 
 {% endfor %}
 {% if pubs_sorted.size > 0 %}</ul>{% endif %}
+{% endraw %}
 ```
 
 - [ ] **Step 3: `_pages/publications.md` を書き換え**
@@ -338,7 +340,9 @@ nav: true
 nav_order: 2
 ---
 
+{% raw %}
 {% include publications_list.html publications=site.data.publications %}
+{% endraw %}
 ```
 
 - [ ] **Step 4: ビルドして Publications ページを確認**
