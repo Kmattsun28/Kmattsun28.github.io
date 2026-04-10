@@ -2,7 +2,7 @@
 layout: about
 title: about
 permalink: /
-subtitle: Graduate School of Engineering, Nagoya University
+subtitle: Department of Information and Communication Engineering, Graduate School of Engineering, Nagoya University
 
 profile:
   align: right
@@ -14,7 +14,7 @@ news: false
 latest_posts: false
 selected_papers: false
 social: true
-nav: false
+nav: true
 nav_order: 1
 ---
 
