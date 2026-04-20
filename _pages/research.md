@@ -15,9 +15,6 @@ nav_order: 4
 - Designed a **cultural fusion space** that blends the cultural backgrounds of both guides and participants
 - Realized **semi-structured collaborative experiences** balancing individual exploration with cooperative activities
 - Adopted a **browser-based design** requiring no dedicated hardware to lower participation barriers
-- Conducted a pilot experiment connecting Higashiyama Zoo (Nagoya) and Kenya with **3,615 participants**
-  - Over 90% reported increased interest in animals and other cultures
-  - Over 70% experienced a sense of unity with others
 
 **Related publications:**
 - [MetaUniTour: Enhancing Engagement and Intercultural Understanding through A Metaverse Tourism Platform](/publications/)
