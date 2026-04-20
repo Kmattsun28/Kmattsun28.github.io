@@ -6,9 +6,3 @@
 #   venue:   Conference or journal name (required)
 #   year:    Publication year as integer (required)
 #   url:     Link to paper (optional - arXiv, DOI, project page, etc.)
-
-- title: "Sample Paper Title on Some Research Topic"
-  authors: "Kohei Matsumoto, Co-Author One, Co-Author Two"
-  venue: "Conference on Example Research (EXAMPLE 2024)"
-  year: 2024
-  url: "https://arxiv.org/abs/0000.00000"
