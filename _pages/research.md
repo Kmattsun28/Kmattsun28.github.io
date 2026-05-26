@@ -17,4 +17,5 @@ nav_order: 4
 - Adopted a **browser-based design** requiring no dedicated hardware to lower participation barriers
 
 **Related publications:**
+- [MetaUniTour: 文化融合と共有体験を実現するメタバース観光システム](/publications/)
 - [MetaUniTour: Enhancing Engagement and Intercultural Understanding through A Metaverse Tourism Platform](/publications/)

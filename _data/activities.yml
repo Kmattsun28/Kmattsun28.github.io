@@ -1,0 +1,45 @@
+# Activities list
+# Fields:
+#   title:       活動タイトル (required)
+#   date:        日付 YYYY-MM-DD (required)
+#   type:        種別 e.g. 論文発表, 受賞, メディア掲載, インターン, その他 (required)
+#   venue:       開催場所・媒体名 (optional)
+#   description: 補足説明 (optional)
+#   url:         リンク (optional)
+
+- title: "JST CREST Internet of Realities 第3回シンポジウム"
+  date: "2026-03-17"
+  type: "シンポジウム"
+  venue: "東京大学"
+  description: "JST CREST「第3回 Internet of Realities シンポジウム ―紡ぎ、繋ぐ、リアリティの未来―」にてポスター発表を行いました。"
+  url: "https://internet-of-realities.org/news/sympo/symposium2026html.html"
+
+- title: "MBL/ITS研究会 WiP奨励賞"
+  date: "2025-11-27〜2025-11-28"
+  type: "国内学会発表"
+  venue: "第 117 回モバイルコンピューティングと新社会システム(MBL)・第 103 回高度交通システムとスマートコミュニティ(ITS) 合同研究発表会"
+  description: "MBL/ITS研究会にてWiP奨励賞を受賞しました"
+  url: "https://www.ucl.nuee.nagoya-u.ac.jp/blog/2025/2025-11-26-117thMBL/"
+
+- title: "IEEE MetaCom2025"
+  date: "2025-08-27〜2025-08-29"
+  type: "国際学会発表"
+  venue: "IEEE MetaCom 2025"
+  description: "IEEE MetaCom 2025にて発表を行いました"
+  url: ""
+
+- title: "JST CREST Internet of Realities 第2回シンポジウム"
+  date: "2025-03-14"
+  type: "シンポジウム"
+  venue: "東京大学"
+  description: "JST CREST「第2回 Internet of Realities シンポジウム ―現実/幻覚とバーチャル・リアリティ―」にてポスター発表を行いました。"
+  url: "https://internet-of-realities.org/news/sympo/symposium2025.html" 
+
+
+- title: "東山動植物園 リアリティ・オブ・ケニア"
+  date: "2025-01-04〜2025-03-30"
+  type: "イベント"
+  venue: "東山動植物園"
+  description: "東山動植物園「リアリティ・オブ・ケニア」にてデモ展示を行いました。"
+  url: "https://www.higashiyama.city.nagoya.jp/news/2025/01/post-1215.html" 
+ 

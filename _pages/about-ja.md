@@ -1,7 +1,7 @@
 ---
 layout: about
 title: "自己紹介"
-permalink: /ja/
+permalink: /
 subtitle: 名古屋大学 大学院工学研究科　情報・通信工学専攻
 
 profile:
@@ -15,7 +15,9 @@ latest_posts: false
 selected_papers: false
 social: true
 nav: true
-nav_order: 2
+nav_order: 1
+lang: ja
+recent_activities: true
 ---
 
 名古屋大学大学院工学研究科情報・通信工学専攻の修士1年です。

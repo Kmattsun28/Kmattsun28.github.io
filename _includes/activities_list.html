@@ -1,0 +1,30 @@
+{% assign sorted = site.data.activities | sort: "date" | reverse %}
+{% if include.limit %}
+  {% assign display = sorted | limit: include.limit %}
+{% else %}
+  {% assign display = sorted %}
+{% endif %}
+
+<ul class="activities-list" style="list-style: none; padding: 0;">
+  {% for act in display %}
+  <li style="margin-bottom: 1em;">
+    <span style="color: #888; font-size: 0.85em; margin-right: 0.5em;">
+      {{ act.date | date: "%Y年%m月" }}
+    </span>
+    <span class="badge" style="background-color: #4a90d9; color: white; padding: 2px 8px; border-radius: 4px; font-size: 0.78em; margin-right: 0.5em;">
+      {{ act.type }}
+    </span>
+    {% if act.url and act.url != "" %}
+      <a href="{{ act.url }}" target="_blank" rel="noopener noreferrer">{{ act.title }}</a>
+    {% else %}
+      {{ act.title }}
+    {% endif %}
+    {% if act.venue and act.venue != "" %}
+      <span style="color: #666; font-style: italic;">&mdash; {{ act.venue }}</span>
+    {% endif %}
+    {% if act.description and act.description != "" %}
+      <div style="color: #555; font-size: 0.9em; margin-top: 0.2em;">{{ act.description }}</div>
+    {% endif %}
+  </li>
+  {% endfor %}
+</ul>

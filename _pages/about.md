@@ -1,7 +1,7 @@
 ---
 layout: about
 title: about
-permalink: /
+permalink: /en/
 subtitle: Department of Information and Communication Engineering, Graduate School of Engineering, Nagoya University
 
 profile:
@@ -15,7 +15,8 @@ latest_posts: false
 selected_papers: false
 social: true
 nav: true
-nav_order: 1
+nav_order: 5
+lang: en
 ---
 
 I am a first-year Master's student in the Department of Information and Communication Engineering at the Graduate School of Engineering, Nagoya University.

@@ -4,7 +4,8 @@ title: "研究 (JP)"
 permalink: /research-ja/
 description:
 nav: true
-nav_order: 5
+nav_order: 3
+lang: ja
 ---
 
 ## メタバース観光システム MetaUniTour
@@ -18,4 +19,6 @@ nav_order: 5
 
 
 **関連論文:**
+- [MetaUniTour: 文化融合と共有体験を実現するメタバース観光システム](/publications/)
 - [MetaUniTour: Enhancing Engagement and Intercultural Understanding through A Metaverse Tourism Platform](/publications/)
+
