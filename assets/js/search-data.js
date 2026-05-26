@@ -3,25 +3,18 @@ const ninja = document.querySelector('ninja-keys');
 
 // add the home and posts menu items
 ninja.data = [{
-    id: "nav-about",
-    title: "about",
+    id: "nav-自己紹介",
+    title: "自己紹介",
     section: "Navigation",
     handler: () => {
       window.location.href = "/";
     },
-  },{id: "nav-about",
-          title: "about",
-          description: "",
-          section: "Navigation",
-          handler: () => {
-            window.location.href = "/";
-          },
-        },{id: "nav-自己紹介",
+  },{id: "nav-自己紹介",
           title: "自己紹介",
           description: "",
           section: "Navigation",
           handler: () => {
-            window.location.href = "/ja/";
+            window.location.href = "/";
           },
         },{id: "nav-publications",
           title: "Publications",
@@ -30,6 +23,20 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/publications/";
           },
+        },{id: "nav-研究-jp",
+          title: "研究 (JP)",
+          description: "",
+          section: "Navigation",
+          handler: () => {
+            window.location.href = "/research-ja/";
+          },
+        },{id: "nav-活動",
+          title: "活動",
+          description: "",
+          section: "Navigation",
+          handler: () => {
+            window.location.href = "/activities/";
+          },
         },{id: "nav-research",
           title: "Research",
           description: "",
@@ -37,12 +44,12 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/research/";
           },
-        },{id: "nav-研究-jp",
-          title: "研究 (JP)",
+        },{id: "nav-about",
+          title: "about",
           description: "",
           section: "Navigation",
           handler: () => {
-            window.location.href = "/research-ja/";
+            window.location.href = "/en/";
           },
         },{id: "post-google-gemini-updates-flash-1-5-gemma-2-and-project-astra",
         
