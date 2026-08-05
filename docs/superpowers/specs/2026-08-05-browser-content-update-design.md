@@ -109,9 +109,11 @@ workflow内に更新ロジックを直接書かず、Pythonスクリプトに集
 - 変更がなければcommitしない
 - workflow summaryに追加した内容を出力する
 
-GitHub Actionsからのcommitが既存のデプロイworkflowを起動できるよう、認証方式を確認する。現在の引用数更新workflowにも、後続workflowを起動する場合はPATが必要になる旨の記載があるため、必要に応じてActions用のPATをRepository Secretとして設定する。
+GitHub Actionsからのcommitが既存のデプロイworkflowを確実に起動できるよう、`SITE_UPDATE_TOKEN`という名前のfine-grained PATをRepository Secretとして設定する。PATは対象リポジトリに限定し、ContentsのRead and write権限だけを付与する。現在の引用数更新workflowにも、後続workflowを起動する場合はPATが必要になる旨の記載がある。
 
 認証情報はworkflowのソースコードに書かず、GitHub Secretsから参照する。
+
+workflowのcheckoutとpushには`secrets.SITE_UPDATE_TOKEN`を使う。これにより、データ更新commitが通常のpushとして扱われ、既存の`deploy.yml`のpushトリガーで公開処理が始まる。
 
 ## 5. データ管理方針
 
@@ -162,6 +164,8 @@ GitHub Actionsからのcommitが既存のデプロイworkflowを起動できる�
 - GitHub Pagesビルドエラー: 既存のdeploy workflowの結果で検知する
 - 誤登録: Gitのcommit履歴から対象commitを確認し、revertまたは修正フォームで対応する
 - 同時実行: 同じworkflowの同時実行を制限し、データの追記競合を防ぐ
+
+2つのworkflowで同じ`content-entry` concurrency groupを使い、`cancel-in-progress: false`にする。先に開始した更新を完了させた後、次の更新を実行する。
 
 自動commit前に対象ファイルの変更差分を確認できるよう、workflow summaryに変更内容を出す。
 
@@ -223,4 +227,3 @@ BibTeXの正本化・自動同期は、この導入が完了してから別の�
 - 既存の論文データのBibTeX完全統合
 - 既存ページの見た目の大幅な変更
 - 画像・PDFのブラウザアップロード
-
