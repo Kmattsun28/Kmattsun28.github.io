@@ -17,9 +17,6 @@ DEFAULT_OUTPUTS = {
     "publication": Path(__file__).resolve().parents[1] / "_data" / "publications.yml",
     "activity": Path(__file__).resolve().parents[1] / "_data" / "activities.yml",
 }
-
-PUBLICATION_FIELDS = ("title", "authors", "venue", "year", "url")
-ACTIVITY_FIELDS = ("title", "date", "type", "venue", "description", "url")
 DATE_RANGE_SEPARATOR = "〜"
 DATE_PATTERN = re.compile(r"^\d{4}-\d{2}-\d{2}$")
 WHITESPACE_PATTERN = re.compile(r"\s+")
