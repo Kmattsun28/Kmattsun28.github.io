@@ -1,0 +1,86 @@
+name: Add activity
+
+on:
+  workflow_dispatch:
+    inputs:
+      title:
+        description: Activity title
+        required: true
+        type: string
+      date:
+        description: Activity date
+        required: true
+        type: string
+      type:
+        description: Activity type
+        required: true
+        type: string
+      venue:
+        description: Activity venue
+        required: false
+        default: ""
+        type: string
+      description:
+        description: Activity description
+        required: false
+        default: ""
+        type: string
+      url:
+        description: Optional activity URL
+        required: false
+        default: ""
+        type: string
+
+permissions:
+  contents: write
+
+concurrency:
+  group: content-entry
+  cancel-in-progress: false
+
+jobs:
+  add-activity:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.SITE_UPDATE_TOKEN }}
+          ref: ${{ github.event.repository.default_branch }}
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+
+      - name: Install dependency
+        run: python3 -m pip install pyyaml
+
+      - name: Add activity entry
+        env:
+          ENTRY_TITLE: ${{ inputs.title }}
+          ENTRY_DATE: ${{ inputs.date }}
+          ENTRY_TYPE: ${{ inputs.type }}
+          ENTRY_VENUE: ${{ inputs.venue }}
+          ENTRY_DESCRIPTION: ${{ inputs.description }}
+          ENTRY_URL: ${{ inputs.url }}
+        run: |
+          python3 bin/add_site_entry.py activity \
+            --title "$ENTRY_TITLE" \
+            --date "$ENTRY_DATE" \
+            --type "$ENTRY_TYPE" \
+            --venue "$ENTRY_VENUE" \
+            --description "$ENTRY_DESCRIPTION" \
+            --url "$ENTRY_URL"
+
+      - name: Commit and push activity data
+        env:
+          DEFAULT_BRANCH: ${{ github.event.repository.default_branch }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add _data/activities.yml
+          git diff --cached --quiet && exit 0
+          git commit -m "content: add activity"
+          git push origin "HEAD:${DEFAULT_BRANCH}"
