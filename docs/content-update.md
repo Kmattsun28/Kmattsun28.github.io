@@ -80,11 +80,12 @@ workflowが失敗した場合は、Actionsの実行ログでエラー内容を�
 
 ## 誤登録を戻す方法
 
-成功後に内容を間違えていたことに気づいた場合は、対象の自動commitをGitHubのcommit履歴で確認し、そのcommitの **Revert** を使って取り消します。GitHubの案内に従ってrevert用の変更またはPull Requestを作成し、default branchへ反映してください。
+成功後に内容を間違えていたことに気づいた場合は、GitHub上で対象のYAMLを直接修正します。Actionsの実行履歴、またはcommit履歴から誤登録のcommitを確認し、変更されたファイル（`_data/publications.yml` または `_data/activities.yml`）を開いて **Edit this file**（鉛筆アイコン）を選びます。誤ったエントリのブロックだけを削除し、他のエントリは変更せず、**Preview changes** で差分を確認してください。
+
+default branchへの直接commitが許可されている場合は、そのまま修正commitを作成します。保護されたbranchの場合は、**Commit changes** で新しいbranchを作成してPull Requestを開き、レビュー後にdefault branchへmergeします。どちらの場合も、ローカルのエディタやターミナル、手動の `git push` は必要ありません。
 
 取り消し後に正しい内容を登録する場合は、該当するActions workflowを再実行します。誤登録のcommitを特定できない場合は、Actionsの実行履歴とcommitメッセージ（`content: add publication` または `content: add activity`）を手掛かりにします。
 
 ## BibTeXについて
 
 第1段階では、ブラウザからの追加によって `_data/publications.yml` だけが更新されます。`_bibliography/papers.bib` のBibTeXは自動更新されません。BibTeXにも同じ論文を追加・修正する必要がある場合は、別途これまでの管理手順で対応してください。
-
