@@ -1,0 +1,78 @@
+name: Add publication
+
+on:
+  workflow_dispatch:
+    inputs:
+      title:
+        description: Publication title
+        required: true
+        type: string
+      authors:
+        description: Comma-separated authors
+        required: true
+        type: string
+      venue:
+        description: Conference or journal
+        required: true
+        type: string
+      year:
+        description: Four-digit publication year
+        required: true
+        type: string
+      url:
+        description: Optional paper or project URL
+        required: false
+        default: ""
+        type: string
+
+permissions:
+  contents: write
+
+concurrency:
+  group: content-entry
+  cancel-in-progress: false
+
+jobs:
+  add-publication:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.SITE_UPDATE_TOKEN }}
+          ref: ${{ github.event.repository.default_branch }}
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+
+      - name: Install dependency
+        run: python3 -m pip install pyyaml
+
+      - name: Add publication entry
+        env:
+          ENTRY_TITLE: ${{ inputs.title }}
+          ENTRY_AUTHORS: ${{ inputs.authors }}
+          ENTRY_VENUE: ${{ inputs.venue }}
+          ENTRY_YEAR: ${{ inputs.year }}
+          ENTRY_URL: ${{ inputs.url }}
+        run: |
+          python3 bin/add_site_entry.py publication \
+            --title "$ENTRY_TITLE" \
+            --authors "$ENTRY_AUTHORS" \
+            --venue "$ENTRY_VENUE" \
+            --year "$ENTRY_YEAR" \
+            --url "$ENTRY_URL"
+
+      - name: Commit and push publication data
+        env:
+          DEFAULT_BRANCH: ${{ github.event.repository.default_branch }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add _data/publications.yml
+          git diff --cached --quiet && exit 0
+          git commit -m "content: add publication"
+          git push origin "HEAD:${DEFAULT_BRANCH}"
