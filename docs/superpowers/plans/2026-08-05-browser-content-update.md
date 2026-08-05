@@ -147,10 +147,10 @@ The test module should import the script from `bin/` by adding the repository's 
 Run:
 
 ```bash
-python -m unittest tests/test_add_site_entry.py -v
+python3 -m unittest discover -s tests -p 'test_*.py' -v
 ```
 
-Expected: FAIL because `bin/add_site_entry.py` and its public functions do not exist yet.
+Expected: FAIL because `bin/add_site_entry.py` and its public functions do not exist yet. The test file is discovered without requiring a `tests/__init__.py` package marker.
 
 ### Step 3: 最小実装を書く
 
@@ -185,8 +185,8 @@ CLIの`--output`を指定した場合はそのパスを使う。workflowでは`-
 Run:
 
 ```bash
-python -m unittest tests/test_add_site_entry.py -v
-python -m py_compile bin/add_site_entry.py
+python3 -m unittest discover -s tests -p 'test_*.py' -v
+python3 -m py_compile bin/add_site_entry.py
 ```
 
 Expected: 全テストがPASSし、`py_compile`が終了コード0になる。
