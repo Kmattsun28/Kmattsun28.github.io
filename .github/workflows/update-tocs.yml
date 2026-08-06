@@ -28,6 +28,10 @@ jobs:
         with:
           files: ./*.md
 
+      - name: Install Prettier
+        if: steps.changed-files.outputs.any_changed == 'true'
+        run: npm ci --ignore-scripts
+
       - name: Updated toc on all markdown changed files
         env:
           ALL_CHANGED_FILES: ${{ steps.changed-files.outputs.all_changed_files }}
@@ -42,6 +46,9 @@ jobs:
             ./gh-md-toc --indent 2 --insert --no-backup --hide-footer $file
           done
           rm gh-md-toc
+          if [[ -n "$ALL_CHANGED_FILES" ]]; then
+            npx prettier $ALL_CHANGED_FILES --write
+          fi
 
       - name: Commit changes
         if: steps.changed-files.outputs.any_changed == 'true'
