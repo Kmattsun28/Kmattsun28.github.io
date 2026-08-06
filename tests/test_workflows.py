@@ -1,0 +1,26 @@
+import unittest
+from pathlib import Path
+
+
+REPO_ROOT = Path(__file__).resolve().parents[1]
+
+
+class ContentWorkflowTests(unittest.TestCase):
+    def test_content_workflows_do_not_require_unconfigured_secret(self):
+        for workflow_name in ("add-activity.yml", "add-publication.yml"):
+            workflow = (REPO_ROOT / ".github" / "workflows" / workflow_name).read_text(
+                encoding="utf-8"
+            )
+            self.assertNotIn("SITE_UPDATE_TOKEN", workflow)
+
+    def test_content_workflows_trigger_deploy_after_success(self):
+        deploy = (REPO_ROOT / ".github" / "workflows" / "deploy.yml").read_text(
+            encoding="utf-8"
+        )
+        self.assertIn("workflow_run:", deploy)
+        self.assertIn("Add activity", deploy)
+        self.assertIn("Add publication", deploy)
+
+
+if __name__ == "__main__":
+    unittest.main()
