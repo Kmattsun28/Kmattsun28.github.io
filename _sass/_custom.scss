@@ -6,31 +6,40 @@
 
 // ── Color tokens ─────────────────────────────────────────────────────────────
 :root {
-  --global-bg-color:           #f8f5f0;   // warm cream
-  --global-text-color:         #1a1714;   // rich near-black
-  --global-text-color-light:   #6b6459;   // warm mid-gray
-  --global-theme-color:        #2c3e7a;   // deep indigo
-  --global-hover-color:        #2c3e7a;
-  --global-hover-text-color:   #f8f5f0;
-  --global-footer-bg-color:    #1d1a16;   // dark ink footer
-  --global-footer-text-color:  #c8bfb0;
-  --global-footer-link-color:  #e8ddd0;
-  --global-divider-color:      rgba(44, 62, 122, 0.12);
-  --global-card-bg-color:      #f3ede5;
-  --global-highlight-color:    #2c3e7a;
+  --global-bg-color: #f8f5f0; // warm cream
+  --global-text-color: #1a1714; // rich near-black
+  --global-text-color-light: #6b6459; // warm mid-gray
+  --global-theme-color: #2c3e7a; // deep indigo
+  --global-hover-color: #2c3e7a;
+  --global-hover-text-color: #f8f5f0;
+  --global-footer-bg-color: #1d1a16; // dark ink footer
+  --global-footer-text-color: #c8bfb0;
+  --global-footer-link-color: #e8ddd0;
+  --global-divider-color: rgba(44, 62, 122, 0.12);
+  --global-card-bg-color: #f3ede5;
+  --global-highlight-color: #2c3e7a;
 }
 
 // ── Base typography ───────────────────────────────────────────────────────────
 body {
-  font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family:
+    "DM Sans",
+    -apple-system,
+    BlinkMacSystemFont,
+    sans-serif;
   font-weight: 300;
   line-height: 1.75;
   background-color: var(--global-bg-color);
   color: var(--global-text-color);
 }
 
-h1, h2, h3, h4, h5, h6 {
-  font-family: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Cormorant Garamond", Georgia, "Times New Roman", serif;
   color: var(--global-text-color);
 }
 
@@ -60,7 +69,7 @@ h3 {
 }
 
 .navbar-brand {
-  font-family: 'Cormorant Garamond', Georgia, serif !important;
+  font-family: "Cormorant Garamond", Georgia, serif !important;
   font-size: 1.3rem !important;
   font-weight: 300 !important;
   letter-spacing: 0.12em !important;
@@ -69,14 +78,15 @@ h3 {
 }
 
 .navbar .nav-item .nav-link {
-  font-family: 'DM Sans', sans-serif;
+  font-family: "DM Sans", sans-serif;
   font-size: 0.8rem;
   font-weight: 400;
   letter-spacing: 0.07em;
   text-transform: uppercase;
   color: var(--global-text-color-light) !important;
 
-  &:hover, &.active {
+  &:hover,
+  &.active {
     color: var(--global-theme-color) !important;
   }
 }
@@ -95,7 +105,7 @@ a {
 
 // ── About / profile page ──────────────────────────────────────────────────────
 .post-title {
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: "Cormorant Garamond", Georgia, serif;
   font-size: 2.8rem;
   font-weight: 300;
   letter-spacing: 0.03em;
@@ -110,7 +120,7 @@ a {
 
 // ── Publications ──────────────────────────────────────────────────────────────
 .publications h2.year {
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: "Cormorant Garamond", Georgia, serif;
   font-size: 1.5rem;
   font-weight: 300;
   letter-spacing: 0.12em;
@@ -124,7 +134,7 @@ a {
 .pub-item .pub-title {
   font-size: 1rem;
   font-weight: 500;
-  font-family: 'DM Sans', sans-serif;
+  font-family: "DM Sans", sans-serif;
 }
 
 .pub-item .pub-authors {

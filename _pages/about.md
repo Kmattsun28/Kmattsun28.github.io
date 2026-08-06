@@ -22,6 +22,7 @@ lang: en
 I am a first-year Master's student in the Department of Information and Communication Engineering at the Graduate School of Engineering, Nagoya University.
 
 ## Education
+
 2026 Apr. - Present: Master's Program in Information and Communication Engineering, Graduate School of Engineering, Nagoya University
 
 2022 Apr. - 2026 Mar.: Bachelor of Engineering in Electrical, Electronics and Information Engineering, School of Engineering, Nagoya University

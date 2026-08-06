@@ -38,7 +38,6 @@ Secret名はworkflowで固定されているため、`SITE_UPDATE_TOKEN`と正�
 
 1. 対象リポジトリで **Actions** → **Add publication** → **Run workflow** を開きます。
 2. 次の項目を入力します。
-
    - **title**: 論文タイトル（必須）
    - **authors**: 著者名（必須）
    - **venue**: 学会名・雑誌名（必須）
@@ -53,7 +52,6 @@ Secret名はworkflowで固定されているため、`SITE_UPDATE_TOKEN`と正�
 
 1. 対象リポジトリで **Actions** → **Add activity** → **Run workflow** を開きます。
 2. 次の項目を入力します。
-
    - **title**: 活動名（必須）
    - **date**: 日付または期間（必須）。`YYYY-MM-DD` または `YYYY-MM-DD〜YYYY-MM-DD` 形式
    - **type**: 活動種別（必須）

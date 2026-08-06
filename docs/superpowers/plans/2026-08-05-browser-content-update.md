@@ -51,10 +51,12 @@
 ## Task 1: YAML更新スクリプトをTDDで実装する
 
 **Files:**
+
 - Create: `tests/test_add_site_entry.py`
 - Create: `bin/add_site_entry.py`
 
 **Interfaces:**
+
 - `load_entries(path: pathlib.Path) -> list[dict]`
 - `normalize_publication(values: Mapping[str, str]) -> dict`
 - `normalize_activity(values: Mapping[str, str]) -> dict`
@@ -203,9 +205,11 @@ git commit -m "feat: add validated site content entry script"
 ## Task 2: 研究実績追加workflowを実装する
 
 **Files:**
+
 - Create: `.github/workflows/add-publication.yml`
 
 **Interfaces:**
+
 - Consumes: `bin/add_site_entry.py publication`のCLI
 - Produces: `_data/publications.yml`への1件の追記、自動commit、default branchへのpush
 
@@ -338,9 +342,11 @@ git commit -m "feat: add browser publication workflow"
 ## Task 3: 活動追加workflowを実装する
 
 **Files:**
+
 - Create: `.github/workflows/add-activity.yml`
 
 **Interfaces:**
+
 - Consumes: `bin/add_site_entry.py activity`のCLI
 - Produces: `_data/activities.yml`への1件の追記、自動commit、default branchへのpush
 
@@ -400,9 +406,11 @@ git commit -m "feat: add browser activity workflow"
 ## Task 4: 初回設定と日常運用を文書化する
 
 **Files:**
+
 - Create: `docs/content-update.md`
 
 **Interfaces:**
+
 - Consumes: `.github/workflows/add-publication.yml`, `.github/workflows/add-activity.yml`
 - Produces: 利用者が初回設定と通常更新を再現できる日本語手順
 
@@ -442,6 +450,7 @@ git commit -m "docs: document browser content update workflow"
 ## Task 5: ローカル検証とGitHub上の本番確認を行う
 
 **Files:**
+
 - Test: `tests/test_add_site_entry.py`
 - Verify: `bin/add_site_entry.py`, `.github/workflows/add-publication.yml`, `.github/workflows/add-activity.yml`, `docs/content-update.md`
 

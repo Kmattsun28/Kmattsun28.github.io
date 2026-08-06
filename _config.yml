@@ -7,9 +7,9 @@ first_name: Kohei
 middle_name:
 last_name: Matsumoto
 email: mattsun@ucl.nuee.nagoya-u.ac.jp # placeholder - replace with your actual email
-author_names:            # used for author bolding in publications (add as many as needed)
-  - "Kohei Matsumoto"          # English name
-  - "松本 亘平"         # Japanese name
+author_names: # used for author bolding in publications (add as many as needed)
+  - "Kohei Matsumoto" # English name
+  - "松本 亘平" # Japanese name
 contact_note: ""
 description: >
   Personal academic website of Kohei Matsumoto, Master's student at Nagoya University.

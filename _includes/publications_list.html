@@ -1,39 +1,26 @@
-{% assign pubs_sorted = include.publications | sort: "year" | reverse %}
-{% assign current_year = "" %}
-{% assign opened_ul = false %}
+{% assign pubs_by_year = include.publications | group_by: "year" | sort: "name" | reverse %}
 
 <div class="publications">
-{% for pub in pubs_sorted %}
-  {% if pub.year != current_year %}
-    {% if opened_ul %}</ul>{% endif %}
-    <h2 class="year">{{ pub.year }}</h2>
-    <ul class="pub-list">
-    {% assign current_year = pub.year %}
-    {% assign opened_ul = true %}
-  {% endif %}
+  {% for year_group in pubs_by_year %}
+  <h2 class="year">{{ year_group.name }}</h2>
+  <ul class="pub-list">
+    {% for pub in year_group.items %}
 
-  <li class="pub-item" style="margin-bottom: 1.2em;">
-    <div class="pub-title" style="font-weight: 600;">
-      {% if pub.url %}
+    <li class="pub-item" style="margin-bottom: 1.2em">
+      <div class="pub-title" style="font-weight: 600">
+        {% if pub.url %}
         <a href="{{ pub.url }}" target="_blank" rel="noopener noreferrer">{{ pub.title }}</a>
-      {% else %}
-        {{ pub.title }}
-      {% endif %}
-    </div>
-    <div class="pub-authors" style="color: #555;">
-      {% assign authors = pub.authors | split: ", " %}
-      {% for author in authors %}
-        {% assign is_me = false %}
-        {% for name in site.author_names %}
-          {% if author == name %}{% assign is_me = true %}{% endif %}
-        {% endfor %}
-        {% if is_me %}<strong>{{ author }}</strong>{% else %}{{ author }}{% endif %}
-        {% unless forloop.last %},&nbsp;{% endunless %}
-      {% endfor %}
-    </div>
-    <div class="pub-venue" style="font-style: italic; color: #666;">{{ pub.venue }}</div>
-  </li>
+        {% else %} {{ pub.title }} {% endif %}
+      </div>
+      <div class="pub-authors" style="color: #555">
+        {% assign authors = pub.authors | split: ", " %} {% for author in authors %} {% assign is_me = false %} {% for name in site.author_names %} {%
+        if author == name %}{% assign is_me = true %}{% endif %} {% endfor %} {% if is_me %}<strong>{{ author }}</strong>{% else %}{{ author }}{%
+        endif %} {% unless forloop.last %},&nbsp;{% endunless %} {% endfor %}
+      </div>
+      <div class="pub-venue" style="font-style: italic; color: #666">{{ pub.venue }}</div>
+    </li>
 
-{% endfor %}
-{% if opened_ul %}</ul>{% endif %}
+    {% endfor %}
+  </ul>
+  {% endfor %}
 </div>

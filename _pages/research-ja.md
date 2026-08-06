@@ -17,8 +17,7 @@ lang: ja
 - 個人の自由な探索と協調的活動を両立する**半構造化された共同体験**を実現
 - 専用機材不要の**ブラウザベース設計**により参加障壁を低減
 
-
 **関連論文:**
+
 - [MetaUniTour: 文化融合と共有体験を実現するメタバース観光システム](/publications/)
 - [MetaUniTour: Enhancing Engagement and Intercultural Understanding through A Metaverse Tourism Platform](/publications/)
-

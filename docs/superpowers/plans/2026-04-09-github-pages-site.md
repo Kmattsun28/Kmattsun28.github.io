@@ -40,6 +40,7 @@ docs/
 ## Task 1: al-folioテンプレートの取り込み
 
 **Files:**
+
 - Create: リポジトリルート以下（al-folioの全ファイル）
 
 - [ ] **Step 1: al-folioをクローンしてファイルをコピー**
@@ -78,6 +79,7 @@ git commit -m "feat: add al-folio template as base"
 ## Task 2: `_config.yml` の基本設定
 
 **Files:**
+
 - Modify: `_config.yml`
 
 - [ ] **Step 1: `_config.yml` を開いて基本情報を確認**
@@ -94,28 +96,28 @@ head -80 _config.yml
 # ----------------------------
 # SITE SETTINGS
 # ----------------------------
-title: "Your Name"                   # EDIT: 自分の名前（英語）
-first_name: "Your"                   # EDIT: 名
-last_name: "Name"                    # EDIT: 姓
-email: you@example.com               # EDIT: メールアドレス
-description: "Researcher in ..."     # EDIT: 一行の研究紹介（英語）
+title: "Your Name" # EDIT: 自分の名前（英語）
+first_name: "Your" # EDIT: 名
+last_name: "Name" # EDIT: 姓
+email: you@example.com # EDIT: メールアドレス
+description: "Researcher in ..." # EDIT: 一行の研究紹介（英語）
 footer_text: ""
 
 # カスタム設定：著者名ボールド用（姓名どちらか一意に識別できる文字列）
-author_name: "Your Name"             # EDIT: 論文著者リストでボールドにする自分の名前
+author_name: "Your Name" # EDIT: 論文著者リストでボールドにする自分の名前
 
 # ----------------------------
 # SOCIAL
 # ----------------------------
-github_username: your-github         # EDIT: GitHubユーザー名
-scholar_userid: your-scholar-id      # EDIT: Google Scholar ID（プロフィールURLのuserパラメータ）
-linkedin_username: ""                # EDIT: LinkedIn（任意）
-twitter_username: ""                 # EDIT: Twitter/X（任意）
+github_username: your-github # EDIT: GitHubユーザー名
+scholar_userid: your-scholar-id # EDIT: Google Scholar ID（プロフィールURLのuserパラメータ）
+linkedin_username: "" # EDIT: LinkedIn（任意）
+twitter_username: "" # EDIT: Twitter/X（任意）
 
 # ----------------------------
 # BUILD
 # ----------------------------
-url: "https://username.github.io"    # EDIT: GitHubユーザー名に合わせて変更
+url: "https://username.github.io" # EDIT: GitHubユーザー名に合わせて変更
 baseurl: ""
 ```
 
@@ -131,6 +133,7 @@ git commit -m "config: set site title, author info, and social links"
 ## Task 3: Aboutページのカスタマイズ（EN）
 
 **Files:**
+
 - Modify: `_pages/about.md`
 
 - [ ] **Step 1: 既存のabout.mdを確認**
@@ -184,6 +187,7 @@ git commit -m "feat: simplify about page (remove bio text)"
 ## Task 4: Aboutページ（JP版）の作成
 
 **Files:**
+
 - Create: `_pages/about-ja.md`
 
 - [ ] **Step 1: `_pages/about-ja.md` を作成**
@@ -213,12 +217,14 @@ al-folioでは各ページの `nav: true` と `nav_order` がナビに自動反�
 `_pages/about.md` のフロントマターも合わせて確認・修正する：
 
 `_pages/about.md` の frontmatter に追加（なければ）：
+
 ```yaml
 nav: true
 nav_order: 1
 ```
 
 `_pages/about-ja.md` の frontmatter：
+
 ```yaml
 ---
 layout: about
@@ -260,6 +266,7 @@ git commit -m "feat: add Japanese about page and language nav links"
 ## Task 5: YAMLベースの論文管理システムを実装
 
 **Files:**
+
 - Create: `_data/publications.yml`
 - Create: `_includes/publications_list.html`
 - Modify: `_pages/publications.md`
@@ -352,6 +359,7 @@ bundle exec jekyll serve
 ```
 
 `http://localhost:4000/publications/` を開いて以下を確認：
+
 - 論文が年度降順で表示される
 - `_config.yml` の `author_name` と一致する著者名がボールドになっている
 - URLがある論文はタイトルがリンクになっている
@@ -368,6 +376,7 @@ git commit -m "feat: implement YAML-based publications with author bolding"
 ## Task 6: Researchページの作成（EN）
 
 **Files:**
+
 - Create: `_pages/research.md`
 
 - [ ] **Step 1: `_pages/research.md` を作成**
@@ -388,6 +397,7 @@ Write 2-3 paragraphs describing your first research theme here.
 This section is written in Markdown — just edit this file to update.
 
 **Related publications:**
+
 - [Paper Title 1](/publications/)
 
 ---
@@ -397,6 +407,7 @@ This section is written in Markdown — just edit this file to update.
 Write 2-3 paragraphs describing your second research theme here.
 
 **Related publications:**
+
 - [Paper Title 2](/publications/)
 ```
 
@@ -420,6 +431,7 @@ git commit -m "feat: add research page (EN)"
 ## Task 7: Researchページ（JP版）の作成
 
 **Files:**
+
 - Create: `_pages/research-ja.md`
 
 - [ ] **Step 1: `_pages/research-ja.md` を作成**
@@ -438,6 +450,7 @@ nav: false
 研究テーマ1の説明をここに書く（2〜3段落）。
 
 **関連論文:**
+
 - [論文タイトル 1](/publications/)
 
 ---
@@ -481,6 +494,7 @@ git commit -m "feat: add research page (JP) and update nav"
 ## Task 8: GitHub Pages デプロイ設定の確認と公開
 
 **Files:**
+
 - Confirm: `.github/workflows/deploy.yml`（al-folioに含まれる）
 
 - [ ] **Step 1: GitHub Actionsワークフローを確認**
@@ -494,6 +508,7 @@ al-folioには `deploy.yml` が含まれている。`on: push: branches: [main]`
 - [ ] **Step 2: GitHubリポジトリの設定を確認（手動操作）**
 
 ブラウザで `https://github.com/Kmattsun28/github.io/settings/pages` を開く：
+
 - Source: **Deploy from a branch** を選択
 - Branch: `gh-pages` と `/ (root)` を選択し、Saveする
 
@@ -535,6 +550,7 @@ permalink: /talks/
 nav: true
 nav_order: 4
 ---
+
 （内容）
 ```
 
