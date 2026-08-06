@@ -89,6 +89,21 @@ class AddSiteEntryTests(unittest.TestCase):
                 path,
             )
 
+    def test_rejects_multiline_publication_title(self):
+        path = self.write_yaml("publications.yml", "[]\n")
+        with self.assertRaisesRegex(ValueError, "title must be a single line"):
+            add_entry(
+                "publication",
+                {
+                    "title": "Author Name\tActual title",
+                    "authors": "Author Name",
+                    "venue": "Venue",
+                    "year": "2026",
+                    "url": "",
+                },
+                path,
+            )
+
     def test_rejects_duplicate_publication_and_activity(self):
         publication_path = self.write_yaml(
             "publications.yml",
