@@ -21,6 +21,13 @@ class ContentWorkflowTests(unittest.TestCase):
         self.assertIn("Add activity", deploy)
         self.assertIn("Add publication", deploy)
 
+    def test_toc_workflow_formats_markdown_after_updating_toc(self):
+        update_tocs = (REPO_ROOT / ".github" / "workflows" / "update-tocs.yml").read_text(
+            encoding="utf-8"
+        )
+        self.assertIn("npm ci --ignore-scripts", update_tocs)
+        self.assertIn("npx prettier", update_tocs)
+
 
 if __name__ == "__main__":
     unittest.main()
