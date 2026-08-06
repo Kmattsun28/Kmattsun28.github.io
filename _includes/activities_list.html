@@ -1,4 +1,4 @@
-{% assign sorted = site.data.activities | sort: "date" | reverse %} {% if include.limit %} {% assign display = sorted | limit: include.limit %} {%
+{% assign sorted = site.data.activities | sort: "date" | reverse %} {% if include.limit %} {% assign display = sorted | slice: 0, include.limit %} {%
 else %} {% assign display = sorted %} {% endif %}
 
 <ul class="activities-list" style="list-style: none; padding: 0">
