@@ -44,6 +44,7 @@ github.io/
 ## 各ページの仕様
 
 ### About（トップページ）
+
 - プロフィール写真
 - 名前・所属・研究分野（短いラベル程度）
 - SNSリンク（GitHub、Google Scholar、メール等）
@@ -52,6 +53,7 @@ github.io/
 - 自己紹介文は初期実装では省略
 
 ### Publications
+
 - `_data/publications.yml` で論文データを管理
 - YAML形式（BibTeX不要）:
   ```yaml
@@ -59,13 +61,14 @@ github.io/
     authors: "著者名1, 著者名2, ..."
     venue: "会議名 / ジャーナル名"
     year: 2024
-    url: "https://arxiv.org/..."   # なければ省略可
+    url: "https://arxiv.org/..." # なければ省略可
   ```
 - `_config.yml` に自分の名前を設定 → 著者リストで自動ボールド表示
 - URLがあればタイトルがクリッカブルリンクになる
 - 年度降順で表示
 
 ### Research
+
 - 研究テーマを2〜4つ掲載
 - 各テーマの構成:
   - タイトル
@@ -87,6 +90,7 @@ github.io/
 ## デプロイ・運用フロー
 
 ### 初回セットアップ
+
 1. al-folio をテンプレートとしてGitHubにリポジトリ作成（`username.github.io`）
 2. `_config.yml` に名前・所属・SNSリンク・著者名を記入
 3. GitHub Pages の設定で `gh-pages` ブランチを公開元に指定
@@ -94,12 +98,12 @@ github.io/
 
 ### 日常的なコンテンツ更新
 
-| やりたいこと | 操作 |
-|---|---|
-| 論文を追加 | `_data/publications.yml` に数行追記してpush |
-| 研究テーマを更新 | `_pages/research.md` を編集してpush |
+| やりたいこと         | 操作                                                    |
+| -------------------- | ------------------------------------------------------- |
+| 論文を追加           | `_data/publications.yml` に数行追記してpush             |
+| 研究テーマを更新     | `_pages/research.md` を編集してpush                     |
 | プロフィール写真変更 | `assets/img/` に画像を置いて `_config.yml` のパスを変更 |
-| CV更新 | `assets/pdf/` にPDFを置き換え |
+| CV更新               | `assets/pdf/` にPDFを置き換え                           |
 
 pushするだけで自動ビルド・公開される。手元にビルド環境は不要。
 
