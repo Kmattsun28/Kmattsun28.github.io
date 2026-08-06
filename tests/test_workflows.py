@@ -28,6 +28,13 @@ class ContentWorkflowTests(unittest.TestCase):
         self.assertIn("npm ci --ignore-scripts", update_tocs)
         self.assertIn("npx prettier", update_tocs)
 
+    def test_activity_list_uses_slice_for_homepage_limit(self):
+        activities_list = (REPO_ROOT / "_includes" / "activities_list.html").read_text(
+            encoding="utf-8"
+        )
+        self.assertIn("| slice: 0, include.limit", activities_list)
+        self.assertNotIn("| limit: include.limit", activities_list)
+
 
 if __name__ == "__main__":
     unittest.main()
