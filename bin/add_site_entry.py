@@ -18,7 +18,7 @@ DEFAULT_OUTPUTS = {
     "activity": Path(__file__).resolve().parents[1] / "_data" / "activities.yml",
 }
 DATE_RANGE_SEPARATOR = "〜"
-DATE_PATTERN = re.compile(r"^\d{4}-\d{2}-\d{2}$")
+DATE_RANGE_PATTERN = re.compile(r"\s*(?:〜|～|~|–|—|\bto\b|\s+-\s+)\s*", re.IGNORECASE)
 WHITESPACE_PATTERN = re.compile(r"\s+")
 
 
@@ -172,21 +172,34 @@ def _parse_year(value: str) -> int:
 
 def _parse_activity_date(value: str) -> str:
     stripped = _required_string({"date": value}, "date")
-    if DATE_RANGE_SEPARATOR in stripped:
-        start_text, end_text = stripped.split(DATE_RANGE_SEPARATOR, 1)
+    date_parts = DATE_RANGE_PATTERN.split(stripped, maxsplit=1)
+    if len(date_parts) == 2:
+        start_text, end_text = date_parts
         start = _parse_single_date(start_text)
         end = _parse_single_date(end_text)
         if start > end:
             raise ValueError("activity date range must not be reversed")
         return f"{start.strftime('%Y-%m-%d')}{DATE_RANGE_SEPARATOR}{end.strftime('%Y-%m-%d')}"
-    _parse_single_date(stripped)
-    return stripped
+    return _parse_single_date(stripped).strftime("%Y-%m-%d")
 
 
 def _parse_single_date(value: str) -> datetime:
-    if not DATE_PATTERN.match(value):
-        raise ValueError("date must be YYYY-MM-DD or YYYY-MM-DD〜YYYY-MM-DD")
-    return datetime.strptime(value, "%Y-%m-%d")
+    stripped = value.strip()
+    japanese_match = re.fullmatch(r"(\d{4})年(\d{1,2})月(\d{1,2})日?", stripped)
+    if japanese_match:
+        stripped = "-".join(japanese_match.groups())
+    else:
+        numeric_match = re.fullmatch(r"(\d{4})[/.年](\d{1,2})[/.月](\d{1,2})日?", stripped)
+        if numeric_match:
+            stripped = "-".join(numeric_match.groups())
+    try:
+        parsed = datetime.strptime(stripped, "%Y-%m-%d")
+    except ValueError as exc:
+        raise ValueError(
+            "date must be YYYY-MM-DD or YYYY-MM-DD〜YYYY-MM-DD "
+            "(common separators such as / and ~ are also accepted)"
+        ) from exc
+    return parsed
 
 
 def _optional_url(value: str) -> str:

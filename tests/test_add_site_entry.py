@@ -68,6 +68,24 @@ class AddSiteEntryTests(unittest.TestCase):
         self.assertEqual(result["date"], "2026-08-01〜2026-08-03")
         self.assertIn("研究展示", path.read_text(encoding="utf-8"))
 
+    def test_normalizes_common_activity_date_formats(self):
+        path = self.write_yaml("activities.yml", "[]\n")
+
+        result = add_entry(
+            "activity",
+            {
+                "title": "研究展示",
+                "date": "2026/8/1~2026/8/3",
+                "type": "展示",
+                "venue": "名古屋大学",
+                "description": "説明",
+                "url": "",
+            },
+            path,
+        )
+
+        self.assertEqual(result["date"], "2026-08-01〜2026-08-03")
+
     def test_rejects_invalid_year_and_url(self):
         path = self.write_yaml("publications.yml", "[]\n")
         with self.assertRaises(ValueError):

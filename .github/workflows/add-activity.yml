@@ -8,7 +8,7 @@ on:
         required: true
         type: string
       date:
-        description: Activity date
+        description: "Activity date (YYYY-MM-DD or YYYY-MM-DD〜YYYY-MM-DD; / and ~ are also accepted)"
         required: true
         type: string
       type:
