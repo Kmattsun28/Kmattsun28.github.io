@@ -154,6 +154,8 @@ def _required_string(values: Mapping[str, str], key: str) -> str:
     value = _optional_string(values.get(key, ""))
     if not value:
         raise ValueError(f"{key} is required")
+    if any(character in value for character in "\r\n\t"):
+        raise ValueError(f"{key} must be a single line")
     return value
 
 
