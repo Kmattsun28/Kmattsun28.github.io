@@ -14,7 +14,15 @@ on:
       type:
         description: Activity type
         required: true
-        type: string
+        type: choice
+        options:
+          - シンポジウム
+          - 国内学会発表
+          - 国際学会発表
+          - 受賞
+          - 展示
+          - イベント
+          - その他
       venue:
         description: Activity venue
         required: false

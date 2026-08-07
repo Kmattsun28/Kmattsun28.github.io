@@ -35,6 +35,16 @@ class ContentWorkflowTests(unittest.TestCase):
         self.assertIn("| slice: 0, include.limit", activities_list)
         self.assertNotIn("| limit: include.limit", activities_list)
 
+    def test_add_activity_form_uses_clear_input_types(self):
+        workflow = (REPO_ROOT / ".github" / "workflows" / "add-activity.yml").read_text(
+            encoding="utf-8"
+        )
+        self.assertIn("type: choice", workflow)
+        self.assertIn("シンポジウム", workflow)
+        self.assertIn("その他", workflow)
+        self.assertIn("YYYY-MM-DD〜YYYY-MM-DD", workflow)
+        self.assertIn("/ and ~ are also accepted", workflow)
+
 
 if __name__ == "__main__":
     unittest.main()
