@@ -32,6 +32,7 @@ I am a first-year Master's student in the Department of Information and Communic
 ## Research Interests
 
 - Human-Computer Interaction (HCI)
+- Knowledge and Interest Expansion with AR
 - Recommender Systems
 - Intercultural Communication
 

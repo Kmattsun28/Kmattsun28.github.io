@@ -51,5 +51,26 @@
   date: '2026-06-25'
   type: 国内学会発表
   venue: メルキュール福岡宗像リゾート＆スパ
-  description: DICOMO026 にて発表を行いました
+  description: DICOMO2026 にて発表を行いました
   url: https://www.ucl.nuee.nagoya-u.ac.jp/blog/2026/2026-06-24-DICOMO2026/
+
+- title: "サンフランシスコ・ベイエリア／ワシントン大学 訪問"
+  date: "2026-09-03〜2026-09-10"
+  type: "その他"
+  venue: "サンフランシスコ・ベイエリア、シアトル（ワシントン大学）"
+  description: "研究訪問としてサンフランシスコ・ベイエリアとワシントン大学を訪問しました。"
+  url: ""
+
+- title: "OpenAI ハッカソン"
+  date: "2026-09-15"
+  type: "イベント"
+  venue: "THE BEACH YOKOHAMA"
+  description: "OpenAI ハッカソンに参加しました。"
+  url: ""
+
+- title: "JST CREST Internet of Realities ヨーロッパワークショップ"
+  date: "2026-09-26〜2026-10-02"
+  type: "その他"
+  venue: "スイス・英国"
+  description: "JST CREST Internet of Realities のスイス・英国ワークショップに参加しました。"
+  url: ""

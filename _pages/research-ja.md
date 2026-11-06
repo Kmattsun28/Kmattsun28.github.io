@@ -8,6 +8,17 @@ nav_order: 3
 lang: ja
 ---
 
+## ARを用いた知識拡張・興味拡張
+
+- 日常生活で目にする身近なモノや周囲の環境を手がかりに、まだ興味を持っていない分野への関心を広げることを目指す
+- 環境情報とユーザの嗜好・興味にもとづいて、関連する知識をARで提示する手法を検討
+- 身近なもの（familiar）と未知の分野（strange）をつなぐ提示の設計が中心
+
+**関連論文:**
+
+- [環境情報とユーザ嗜好に基づくARを用いた知識拡張手法の検討](/publications/)
+- [Bridging Strange and Familiar: Design of Knowledge Expansion System via Daily Surroundings](/publications/)
+
 ## メタバース観光システム MetaUniTour
 
 <img src="/assets/img/research1_overview_ja-1.png" alt="MetaUniTour 概要" style="max-width:100%; margin-bottom:1rem;">
