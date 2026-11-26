@@ -1,19 +1,22 @@
-{% assign sorted = site.data.activities | sort: "date" | reverse %} {% if include.limit %} {% assign display = sorted | slice: 0, include.limit %} {%
-else %} {% assign display = sorted %} {% endif %}
+{% assign lang = include.lang | default: 'ja' %} {% assign t = site.data.i18n[lang] %} {% assign sorted = site.data.activities | sort: 'date' |
+reverse %} {% if include.limit %} {% assign display = sorted | slice: 0, include.limit %} {% else %} {% assign display = sorted %} {% endif %}
 
 <ul class="activities-list" style="list-style: none; padding: 0">
-  {% for act in display %}
+  {% for act in display %} {% assign title = act.title %} {% assign description = act.description %} {% assign type_label = act.type %} {% if lang ==
+  'en' %} {% if act.title_en and act.title_en != '' %}{% assign title = act.title_en %}{% endif %} {% if act.description_en and act.description_en !=
+  '' %}{% assign description = act.description_en %}{% endif %} {% assign type_label = site.data.i18n.activity_types_en[act.type] | default: act.type
+  %} {% endif %}
   <li style="margin-bottom: 1em">
-    <span style="color: #888; font-size: 0.85em; margin-right: 0.5em"> {{ act.date | date: "%Y年%m月" }} </span>
+    <span style="color: #888; font-size: 0.85em; margin-right: 0.5em">{{ act.date | date: t.date_format }}</span>
     <span class="badge" style="background-color: #4a90d9; color: white; padding: 2px 8px; border-radius: 4px; font-size: 0.78em; margin-right: 0.5em">
-      {{ act.type }}
+      {{- type_label -}}
     </span>
-    {% if act.url and act.url != "" %}
-    <a href="{{ act.url }}" target="_blank" rel="noopener noreferrer">{{ act.title }}</a>
-    {% else %} {{ act.title }} {% endif %} {% if act.venue and act.venue != "" %}
+    {% if act.url and act.url != '' %}
+    <a href="{{ act.url }}" target="_blank" rel="noopener noreferrer">{{ title }}</a>
+    {% else %} {{ title }} {% endif %} {% if act.venue and act.venue != '' %}
     <span style="color: #666; font-style: italic">&mdash; {{ act.venue }}</span>
-    {% endif %} {% if act.description and act.description != "" %}
-    <div style="color: #555; font-size: 0.9em; margin-top: 0.2em">{{ act.description }}</div>
+    {% endif %} {% if description and description != '' %}
+    <div style="color: #555; font-size: 0.9em; margin-top: 0.2em">{{ description }}</div>
     {% endif %}
   </li>
   {% endfor %}

@@ -5,6 +5,8 @@
 #   type:        種別 e.g. 論文発表, 受賞, メディア掲載, インターン, その他 (required)
 #   venue:       開催場所・媒体名 (optional)
 #   description: 補足説明 (optional)
+#   title_en:       英語のタイトル (optional。空なら英語版でも title を出す)
+#   description_en: 英語の補足説明 (optional。空なら英語版でも description を出す)
 #   url:         リンク (optional)
 
 - title: "JST CREST Internet of Realities 第3回シンポジウム"
@@ -12,6 +14,8 @@
   type: "シンポジウム"
   venue: "東京大学"
   description: "JST CREST「第3回 Internet of Realities シンポジウム ―紡ぎ、繋ぐ、リアリティの未来―」にてポスター発表を行いました。"
+  title_en: "3rd JST CREST Internet of Realities Symposium"
+  description_en: "Presented a poster at the 3rd JST CREST Internet of Realities Symposium."
   url: "https://internet-of-realities.org/news/sympo/symposium2026html.html"
 
 - title: "MBL/ITS研究会 WiP奨励賞"
@@ -19,6 +23,8 @@
   type: "国内学会発表"
   venue: "第 117 回モバイルコンピューティングと新社会システム(MBL)・第 103 回高度交通システムとスマートコミュニティ(ITS) 合同研究発表会"
   description: "MBL/ITS研究会にてWiP奨励賞を受賞しました"
+  title_en: "WiP Encouragement Award, IPSJ MBL/ITS Joint Meeting"
+  description_en: "Received the WiP Encouragement Award at the joint meeting of the IPSJ SIG-MBL and SIG-ITS."
   url: "https://www.ucl.nuee.nagoya-u.ac.jp/blog/2025/2025-11-26-117thMBL/"
 
 - title: "IEEE MetaCom2025"
@@ -26,6 +32,8 @@
   type: "国際学会発表"
   venue: "IEEE MetaCom 2025"
   description: "IEEE MetaCom 2025にて発表を行いました"
+  title_en: "IEEE MetaCom 2025"
+  description_en: "Presented at IEEE MetaCom 2025."
   url: ""
 
 - title: "JST CREST Internet of Realities 第2回シンポジウム"
@@ -33,6 +41,8 @@
   type: "シンポジウム"
   venue: "東京大学"
   description: "JST CREST「第2回 Internet of Realities シンポジウム ―現実/幻覚とバーチャル・リアリティ―」にてポスター発表を行いました。"
+  title_en: "2nd JST CREST Internet of Realities Symposium"
+  description_en: "Presented a poster at the 2nd JST CREST Internet of Realities Symposium."
   url: "https://internet-of-realities.org/news/sympo/symposium2025.html"
 
 - title: "東山動植物園 リアリティ・オブ・ケニア"
