@@ -8,7 +8,7 @@
 
     <li class="pub-item" style="margin-bottom: 1.2em">
       <div class="pub-title" style="font-weight: 600">
-        {% if pub.url %}
+        {% if pub.url and pub.url != '' %}
         <a href="{{ pub.url }}" target="_blank" rel="noopener noreferrer">{{ pub.title }}</a>
         {% else %} {{ pub.title }} {% endif %}
       </div>

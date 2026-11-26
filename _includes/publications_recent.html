@@ -3,7 +3,7 @@ shown = 0 %}
 <ul class="pub-recent">
   {% for group in groups %} {% for pub in group.items %} {% if shown < limit %}
   <li>
-    {% if pub.url %}
+    {% if pub.url and pub.url != '' %}
     <a href="{{ pub.url }}" target="_blank" rel="noopener noreferrer">{{ pub.title }}</a>
     {% else %} {{ pub.title }} {% endif %}
     <div class="pub-venue" style="font-style: italic">{{ pub.venue }}</div>
