@@ -66,7 +66,7 @@
 新しく `_data/i18n.yml` を作り、言語ごとに次を持つ。
 
 - 見出しとリンクの文言（「論文」「最近の活動」「すべての論文」など）
-- 活動の種別の英語名（シンポジウム → Symposium、国内学会発表 → Domestic Conference、国際学会発表 → International Conference、イベント → Event、受賞 → Award など、`_data/activities.yml` に出てくる種別をすべて）
+- 活動の種別の英語名（シンポジウム → Symposium、国内学会発表 → Domestic Conference、国際学会発表 → International Conference、イベント → Event、受賞 → Award、展示 → Exhibition、その他 → Other。「Add activity」ワークフローの選択肢をすべて）
 
 対応表にない種別は、日本語のまま表示する。
 
@@ -79,7 +79,8 @@
 
 ### 論文の一覧
 
-- `_includes/publications_list.html` は、著者名を分ける前に全角の「，」を「, 」に置き換える。これで日本語の論文でも自分の名前が太字になる。
+- 日本語の論文で自分の名前が太字にならない原因は2つある。`_config.yml` の `author_names` が「松本 亘平」（空白あり）で、データの「松本亘平」と一致しないこと。DICOMO の論文は著者の区切りが全角の「，」であること。
+- `author_names` に「松本亘平」を足し、`_includes/publications_list.html` は著者名を分ける前に全角の「，」を「, 」に置き換える。
 - トップ用に、新しい順の上位N件をタイトルと掲載先だけで出す部品 `_includes/publications_recent.html` を作る。`year` の降順に並べ、同じ年の中ではデータの並び順を保つ。
 
 ### データ
@@ -97,6 +98,7 @@
 | `_layouts/about.liquid`                                       | 日本語固定の「最近の活動」の節を消す。見出しの名前は今のまま       |
 | `_includes/activities_list.html`                              | `lang` の引数、英語の項目、日付の形式                              |
 | `_includes/publications_list.html`                            | 全角の区切りの扱い                                                 |
+| `_config.yml`                                                 | `author_names` に「松本亘平」を足す                                |
 | `_includes/publications_recent.html`                          | 新規。トップ用の論文の上位N件                                      |
 | `_data/i18n.yml`                                              | 新規。文言と活動の種別の対応                                       |
 | `_data/activities.yml`                                        | 英語の項目を足す                                                   |
@@ -131,7 +133,7 @@
 4. 各ページの `<html lang>` がページの言語と合うことを確かめる。
 5. `/research-ja/` を開くと `/research/` へ移ることを確かめる。
 6. 英語のトップと活動ページで、活動が英語で出ること、英語の項目がない活動は日本語で出ることを確かめる。
-7. 論文ページで、DICOMO の論文の「松本亘平」が太字になることを確かめる。
+7. 論文ページで、日本語の論文2件の「松本亘平」が太字になることを確かめる。
 8. ダークモードとライトモードの両方で、言語の切り替えが読めることを確かめる。
 9. 変更したファイルに `npx prettier --check` をかける。
 10. 実装のあと、Codex に差分のレビューを頼む。
