@@ -2,28 +2,16 @@
   <!-- Nav Bar -->
   <nav id="navbar" class="navbar navbar-light navbar-expand-sm {% if site.navbar_fixed %}fixed-top{% else %}sticky-top{% endif %}" role="navigation">
     <div class="container">
-      {% if page.permalink != '/' %}
-        <a class="navbar-brand title font-weight-lighter" href="{{ site.baseurl }}/">
-          {% if site.title == 'blank' %}
-            {% if site.first_name %}
-              <span class="font-weight-bold">
-                {{- site.first_name -}}
-              </span>
-            {% endif %}
-            {% if site.middle_name %}
-              {{- site.middle_name -}}
-            {% endif %}
-            {% if site.last_name %}
-              {{- site.last_name -}}
-            {% endif %}
-          {% else %}
-            {{- site.title -}}
-          {% endif %}
-        </a>
-      {% elsif site.enable_navbar_social %}
-        <!-- Social Icons -->
-        <div class="navbar-brand social">{% social_links %}</div>
+      {% assign current_lang = page.lang | default: 'ja' %}
+      {% if current_lang == 'en' %}
+        {% assign other_lang = 'ja' %}
+      {% else %}
+        {% assign other_lang = 'en' %}
       {% endif %}
+      {% assign t = site.data.i18n[current_lang] %}
+      <a class="navbar-brand title font-weight-lighter" href="{{ t.home_url | relative_url }}">
+        {{- t.site_name -}}
+      </a>
       <!-- Navbar Toggle -->
       <button
         class="navbar-toggler collapsed ml-auto"
@@ -45,7 +33,7 @@
           <!-- Other pages -->
           {% assign sorted_pages = site.pages | sort: 'nav_order' %}
           {% for p in sorted_pages %}
-            {% if p.nav and p.autogen == null %}
+            {% if p.nav and p.autogen == null and p.lang == current_lang %}
               {% if p.dropdown %}
                 {% assign has_active_child = false %}
                 {% for child in p.children %}
@@ -103,6 +91,20 @@
               {% endif %}
             {% endif %}
           {% endfor %}
+          <!-- Language switch -->
+          {% assign switch_url = site.data.i18n[other_lang].home_url %}
+          {% if page.ref %}
+            {% for p in site.pages %}
+              {% if p.ref == page.ref and p.lang == other_lang %}
+                {% assign switch_url = p.url %}
+              {% endif %}
+            {% endfor %}
+          {% endif %}
+          <li class="nav-item lang-switch">
+            <a class="nav-link" href="{{ switch_url | relative_url }}" hreflang="{{ other_lang }}" lang="{{ other_lang }}">
+              {{- site.data.i18n[other_lang].lang_label -}}
+            </a>
+          </li>
           {% if site.search_enabled %}
             <!-- Search -->
             <li class="nav-item">
