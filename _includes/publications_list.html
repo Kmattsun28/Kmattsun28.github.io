@@ -13,9 +13,9 @@
         {% else %} {{ pub.title }} {% endif %}
       </div>
       <div class="pub-authors" style="color: #555">
-        {% assign authors = pub.authors | split: ", " %} {% for author in authors %} {% assign is_me = false %} {% for name in site.author_names %} {%
-        if author == name %}{% assign is_me = true %}{% endif %} {% endfor %} {% if is_me %}<strong>{{ author }}</strong>{% else %}{{ author }}{%
-        endif %} {% unless forloop.last %},&nbsp;{% endunless %} {% endfor %}
+        {% assign authors = pub.authors | replace: '，', ', ' | split: ', ' %} {% for author in authors %} {% assign is_me = false %} {% for name in
+        site.author_names %} {% if author == name %}{% assign is_me = true %}{% endif %} {% endfor %} {% if is_me %}<strong>{{ author }}</strong>{%
+        else %}{{ author }}{% endif %} {% unless forloop.last %},&nbsp;{% endunless %} {% endfor %}
       </div>
       <div class="pub-venue" style="font-style: italic; color: #666">{{ pub.venue }}</div>
     </li>

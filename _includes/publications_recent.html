@@ -1,0 +1,12 @@
+{% assign limit = include.limit | default: 3 %} {% assign groups = site.data.publications | group_by: 'year' | sort: 'name' | reverse %} {% assign
+shown = 0 %}
+<ul class="pub-recent">
+  {% for group in groups %} {% for pub in group.items %} {% if shown < limit %}
+  <li>
+    {% if pub.url %}
+    <a href="{{ pub.url }}" target="_blank" rel="noopener noreferrer">{{ pub.title }}</a>
+    {% else %} {{ pub.title }} {% endif %}
+    <div class="pub-venue" style="font-style: italic">{{ pub.venue }}</div>
+  </li>
+  {% assign shown = shown | plus: 1 %} {% endif %} {% endfor %} {% endfor %}
+</ul>
