@@ -1,0 +1,32 @@
+# サイトの短い文言と、活動の種別の英語名。
+# 活動の種別を増やしたときは activity_types_en にも足す（tests/test_page_pairs.py が確かめる）。
+ja:
+  site_name: "松本亘平"
+  home_url: "/"
+  lang_label: "日本語"
+  see_research: "研究紹介を見る"
+  publications: "論文"
+  all_publications: "すべての論文"
+  count_suffix: "件"
+  recent_activities: "最近の活動"
+  all_activities: "すべての活動"
+  date_format: "%Y年%m月"
+en:
+  site_name: "Kohei Matsumoto"
+  home_url: "/en/"
+  lang_label: "EN"
+  see_research: "See research"
+  publications: "Publications"
+  all_publications: "All publications"
+  count_suffix: ""
+  recent_activities: "Recent Activities"
+  all_activities: "All activities"
+  date_format: "%b %Y"
+activity_types_en:
+  シンポジウム: "Symposium"
+  国内学会発表: "Domestic Conference"
+  国際学会発表: "International Conference"
+  受賞: "Award"
+  展示: "Exhibition"
+  イベント: "Event"
+  その他: "Other"

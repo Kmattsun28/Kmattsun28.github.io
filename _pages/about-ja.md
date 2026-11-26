@@ -14,8 +14,7 @@ news: false
 latest_posts: false
 selected_papers: false
 social: true
-nav: true
-nav_order: 1
+ref: home
 lang: ja
 recent_activities: true
 ---

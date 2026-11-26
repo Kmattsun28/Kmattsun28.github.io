@@ -1,10 +1,12 @@
 ---
 layout: page
-title: Publications
+title: 論文
 permalink: /publications/
 description:
 nav: true
-nav_order: 3
+nav_order: 2
+lang: ja
+ref: publications
 ---
 
 {% include publications_list.html publications=site.data.publications %}
